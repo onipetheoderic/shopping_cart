@@ -1,0 +1,67 @@
+<h1>Products</h1>
+<div class="col-sm-12 col-md-6">
+<% if user_signed_in? && current_user.admin? %>
+	<%= link_to "New product", new_product_path %>
+<% end %>
+</div>
+<div class="col-md-8">
+<% if user_signed_in? && current_user.admin? %>
+	<% if @detail.title? %>
+	<p> Categories column already populated click <%= link_to "Home", root_path %> to proceed with live editing</p>
+	<% else %>
+	<p>	<%=link_to "Categories", new_detail_path, class:"btn btn-primary" %> </p>
+	<% end %>
+
+<% end %>
+</div>
+
+<br>
+<br>
+<br>
+<hr>
+<div class="col-md-6">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Price</th>
+				<th>Image</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @products.each do |product| %>
+				<tr>
+					<td><%= product.title %></td>
+					<td><%= product.price %></td>
+					<td><%= product.image %></td>
+
+					<td>
+					<% if user_signed_in? && current_user.admin? %>
+
+						<%= link_to "Edit", edit_product_path(product) %>
+						<%= link_to "Delete", product_path(product), method: :delete %>
+					<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+
+<br>
+<% if @products.blank? %>
+  <h4>There are no products containing the search term <%= params[:search] %>.</h4>
+  <br>
+  <br>
+  <br>  
+<% end %>
+
+
+
+
+
+
+
+

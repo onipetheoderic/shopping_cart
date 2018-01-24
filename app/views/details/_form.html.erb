@@ -1,0 +1,27 @@
+<%= form_for :detail, url: details_path do |f| %>
+	<% if @detail.errors.any? %>
+		<div id="error">
+		<h3>
+			<%= pluralize(@detail.errors.count, "error")%>
+			prevented this post from saving to the database
+		</h3>
+		<ul>
+			<%= @detail.errors.full_messages.each do |msg| %>
+			<li> <%= msg %></li>
+			<%end%>
+		</ul>
+	<%end%>
+			
+		</div>
+
+	<div class="form-group">
+		<%= f.label :title, "Category1" %>
+		<%= f.text_field :title, class: 'form-cont' %>
+	</div>
+
+<div class="form-group">
+
+	<%= f.submit "Populate to enable live-Editing", :class => 'btn btn-primary' %>
+
+</div>
+<%end%>

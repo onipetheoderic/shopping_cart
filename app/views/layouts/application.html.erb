@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShoppingCart</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<!-- <ul class="nav navbar-nav">
+              <li class="active"></li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active cart"></li>
+            </ul> -->
+  <body>
+   <div class="wrap">
+    <!--start-Header-->
+    <div class="header">
+      <div class="search-bar">
+
+
+      <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+
+     <i id="filtersubmit" class="fa fa-search"></i> <%= text_field_tag :search, params[:search], placeholder: "Search", class:"form-bar" %>
+      </div>
+      <div class="hider">
+      <%= submit_tag "Search" %>
+      </div>
+      <% end %>
+<style type="text/css">
+  .hider {
+    display: none;
+  }
+  input[type=text] {
+    width: 80px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+     border: 1px solid;
+    height: 20px;
+    width: 160px;
+    color: #CCC;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;  
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+   outline:none;
+    border: 1px solid #94CB32; 
+    /* create a BIG glow */
+    box-shadow: 0px 0px 5px #94CB32; 
+    -moz-box-shadow: 0px 0px 5px #94CB32;
+    -webkit-box-shadow: 0px 0px 5px #94CB32; 
+    
+}
+</style>
+<!-- 
+        <form>
+          <input type="text"><input type="submit" value="Search" />
+        </form> -->
+      </div>
+      <div class="clear"> </div>
+      <div class="header-top-nav">
+        <ul><!-- this is the Normal users admin page-->
+          <% if user_signed_in? %>
+            
+            <li><%=link_to "Account", edit_user_registration_path %></li>
+            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          <% else %>
+            <li><%=link_to "Sign Up", new_user_registration_path, class: "active" %> </li>
+            <li><%=link_to "Sign In", new_user_session_path, class: "active" %></li>
+
+          <% end %>
+
+          
+          <li class="active cart"><%= render 'layouts/cart' %></label></li>
+        </ul>
+      </div>
+      <div class="clear"> </div>
+    </div>
+    </div>
+    <div class="clear"> </div>
+    <div class="top-header">
+      <div class="wrap">
+    <!--start-logo-->
+      <div class="logo">
+        <a href="#"><img src="https://image.ibb.co/hq59j6/logo.png" alt="logo" border="0" /></a>
+      </div>
+    <!--end-logo-->
+    <!--start-top-nav-->
+    <div class="top-nav">
+    <!-- This is the Link to the admin  page-->
+      <ul><% if user_signed_in? && current_user.admin %>
+            <li><%= link_to "Admin", products_path %> </li>
+          <% end %>
+          <!--end of admin login page -->
+        <li><%= link_to "Home", root_path %></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="store.html">Featured</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+    </div>
+    <div class="clear"> </div>
+    </div>
+    </div>
+    <!--End-top-nav-->
+    <!--End-Header-->
+
+    
+         	<%= yield %>
+
+            </body>
+</html>

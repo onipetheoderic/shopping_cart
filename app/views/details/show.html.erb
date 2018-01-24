@@ -1,0 +1,20 @@
+<h1>Details#show</h1>
+<div class="container">
+
+<p><%= link_to "Home", root_path%>
+<% if @detail.title? %>
+	<div class= "row">
+	<p>Editing is inplace, since you have created the category instance</p>
+
+	</div>
+<% else %>
+    <li>
+      <%= link_to "New", finder_details_path  %>  
+    </li>
+<% end %>
+<div class="card2">
+
+<%= best_in_place @detail, :title %>
+<p><%= best_in_place @detail, :body %></p>
+<p>last modified: <%= time_ago_in_words(@detail.created_at) %> Ago</p>
+</div>

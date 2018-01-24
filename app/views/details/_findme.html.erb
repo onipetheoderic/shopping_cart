@@ -1,0 +1,72 @@
+<div class="content-sidebar">
+<h4>Categories</h4>
+
+
+<ul><% if user_signed_in? && current_user.admin %>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), phones_and_tablet_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :body %> &nbsp;<span class="badge"><%= @counter %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), tv_and_electronics_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :title %> &nbsp;<span class="badge"><%= @counter_tv %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), laptops_and_desktop_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category1 %> &nbsp;<span class="badge"><%= @counter_lap %></span></li>
+		
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), games_and_console_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category2 %> &nbsp;<span class="badge"><%= @counter_game %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), health_and_beauty_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category3 %> &nbsp;<span class="badge"><%= @counter_health %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), home_and_office_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category4 %> &nbsp;<span class="badge"><%= @counter_home %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), wrist_watches_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category5 %> &nbsp;<span class="badge"><%= @counter_watch %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), footwears_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category6 %> &nbsp;<span class="badge"><%= @counter_foot %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), sports_and_fitness_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category7 %> &nbsp;<span class="badge"><%= @counter_sport %></span></li>
+		
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), toy_and_kids_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category8 %> &nbsp;<span class="badge"><%= @counter_toy %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), provisions_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category9 %> &nbsp;<span class="badge"><%= @counter_provision %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), cars_and_truck_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category10 %> &nbsp;<span class="badge"><%= @counter_car %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), jewellry_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category11 %> &nbsp;<span class="badge"><%= @counter_jewel %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), land_and_properties_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category12 %> &nbsp;<span class="badge"><%= @counter_land %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), home_decor_kitchen_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category13 %> &nbsp;<span class="badge"><%= @counter_home %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), jobs_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category14 %> &nbsp;<span class="badge"><%= @counter_job %></span></li>
+
+		<li><%=link_to (image_tag "http://image.ibb.co/g7LLrm/arrow1.png", class: 'image'), clothings_products_path %> &nbsp;&nbsp;&nbsp;<%= best_in_place @detail, :category14 %> &nbsp;<span class="badge"><%= @counter_cloth %></span></li>
+
+	
+		
+	<% else %>
+		
+		<li><%= @detail.body %> &nbsp;<span class="badge"><%= @counter %></span></li>
+
+		<li><%= @detail.title %>&nbsp;<span class="badge"><%= @counter_tv %></span></li>
+		<li><%= @detail.category1 %>&nbsp;<span class="badge"><%= @counter_lap %></span></li>
+		<li><%= @detail.category2 %>&nbsp;<span class="badge"><%= @counter_game %></span></li>
+		<li><%= @detail.category3 %>&nbsp;<span class="badge"><%= @counter_health %></span></li>
+		<li><%= @detail.category4 %>&nbsp;<span class="badge"><%= @counter_home %></span></li>
+		<li><%= @detail.category5 %>&nbsp;<span class="badge"><%= @counter_watch %></span></li>
+		<li><%= @detail.category6 %>&nbsp;<span class="badge"><%= @counter_foot %></span></li>
+		<li><%= @detail.category7 %>&nbsp;<span class="badge"><%= @counter_sport %></span></li>
+		<li><%= @detail.category8 %>&nbsp;<span class="badge"><%= @counter_toy %></span></li>
+		<li><%= @detail.category9 %>&nbsp;<span class="badge"><%= @counter_provision %></span></li>
+		<li><%= @detail.category10 %>&nbsp;<span class="badge"><%= @counter_car %></span></li>
+		<li><%= @detail.category11%>&nbsp;<span class="badge"><%= @counter_jewel %></span></li>
+		<li><%= @detail.category12 %>&nbsp;<span class="badge"><%= @counter_land %></span></li>
+		<li><%= @detail.category13%>&nbsp;<span class="badge"><%= @counter_home %></span></li>
+		<li><%= @detail.category14 %>&nbsp;<span class="badge"><%= @counter_job %></span></li>
+		<li><%= @detail.category15 %>&nbsp;<span class="badge"><%= @counter_cloth %></span></li>
+	
+	<% end %>	
+</ul>
+</div>
+<style type="text/css">
+.badge {
+	background-color: #94CB32;
+	font-size: 7px;
+}
+</style>
